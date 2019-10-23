@@ -7,3 +7,4 @@ message_duration = 10
 ground_level = 450
 pipe_gap = 0.35
 bird_speed = 2
+pipe_image_filename = "images/pipe.png"

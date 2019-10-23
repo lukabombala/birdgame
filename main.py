@@ -15,9 +15,9 @@ game = BirdGame(c.caption,
                 )
 
 bird = Bird(50, 150, 45, 30, colors.BLACK, )
-pipe1 = Pipe((c.screen_width // 2)-50, 50, colors.PIPE_GREEN)
-pipe2 = Pipe(c.screen_width-40,50, colors.PIPE_GREEN)
-bar = Bar(0, c.ground_level, c.screen_width, 20, colors.BLACK)
+pipe1 = Pipe((c.screen_width // 2) - 50, 50)
+pipe2 = Pipe(c.screen_width - 50, 50)
+bar = Bar(0, c.ground_level, c.screen_width, 20, colors.GREEN)
 
 game.objects.append(bird)
 game.objects.append(pipe1)
