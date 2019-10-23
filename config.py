@@ -1,10 +1,12 @@
-caption = "Bird Game"
-screen_width = 400
-screen_height = 600
+SCREEN_WIDTH = 400
+SCREEN_HEIGHT = 600
 background_image_filename = "images/background_image.png"
 frame_rate = 30
 message_duration = 10
-ground_level = 450
+ground_level = 510
 pipe_gap = 0.35
 bird_speed = 2
 pipe_image_filename = "images/pipe.png"
+fall_speed = 10
+caption = "Bird Game"
+bar_image_filename = "images/barImg.jpg"

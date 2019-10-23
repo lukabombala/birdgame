@@ -1,6 +1,7 @@
 import pygame
-from objects.game_object import GameObject
+
 import config as c
+from objects.game_object import GameObject
 
 
 class Bird(GameObject):
@@ -23,14 +24,14 @@ class Bird(GameObject):
 
     def update(self):
         if self.top <= 0:
-            dy = 5
+            dy = c.fall_speed
         elif self.moving_up:
-            dy = -30
+            dy = -28
         elif not self.moving_up:
-            if self.bottom >= c.ground_level:
-                dy = 0
+            if (self.bottom + c.fall_speed) >= c.ground_level:
+                dy = c.ground_level - self.bottom
             else:
-                dy = 5
+                dy = c.fall_speed
         else:
             return
 

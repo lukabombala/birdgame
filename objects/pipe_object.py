@@ -1,7 +1,9 @@
+import random as rnd
+
 import pygame
+
 import config as c
 from objects.game_object import GameObject
-import random as rnd
 
 
 class Pipe:
@@ -11,7 +13,7 @@ class Pipe:
         self.pipe_height = c.ground_level
         self.gap_height = round(c.pipe_gap * self.pipe_height)
         self.gap_y = Pipe.find_gap_y(self)
-        self.pipe_width = 50
+        self.pipe_width = self.lower_pipeImg.get_width()
         self.upper_pipe = GameObject(x, 0,
                                      self.pipe_width,
                                      self.gap_y, )
@@ -49,8 +51,8 @@ class Pipe:
         if self.upper_pipe.left <= 0:
             self.pipe_copy = self.copy_pipe()
             self.update_gap()
-            self.move(c.screen_width, 0)
-        if self.upper_pipe.right >= c.screen_width:
+            self.move(c.SCREEN_WIDTH, 0)
+        if self.upper_pipe.right >= c.SCREEN_WIDTH:
             self.copied = True
             self.copied_x -= c.bird_speed
             self.pipe_copy[0][0], self.pipe_copy[1][0] = self.copied_x, self.copied_x
@@ -63,9 +65,9 @@ class Pipe:
         self.lower_pipe.bounds = self.lower_pipe.bounds.move(dx, dy)
 
     def copy_pipe(self):
-        upper_pipe_bounds = pygame.Rect([self.copied_x, self.upper_pipe.top, self.upper_pipe.width, self.upper_pipe.height])
-        lower_pipe_bounds = pygame.Rect([self.copied_x, self.lower_pipe.top, self.lower_pipe.width, self.lower_pipe.height])
-        return upper_pipe_bounds, lower_pipe_bounds
+        upper_bounds = pygame.Rect([self.copied_x, self.upper_pipe.top, self.upper_pipe.width, self.upper_pipe.height])
+        lower_bounds = pygame.Rect([self.copied_x, self.lower_pipe.top, self.lower_pipe.width, self.lower_pipe.height])
+        return upper_bounds, lower_bounds
 
     def update_gap(self):
         self.gap_y = Pipe.find_gap_y(self)

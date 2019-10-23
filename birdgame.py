@@ -1,9 +1,11 @@
-from game import Game
-from objects.text_object import TextObject
+import time
+
+import pygame
+
 import colors
 import config as c
-import pygame
-import time
+from game import Game
+from objects.text_object import TextObject
 
 
 class BirdGame(Game):
@@ -13,8 +15,8 @@ class BirdGame(Game):
                      font_name='Arial',
                      font_size=20,
                      centralized=False):
-        message = TextObject(c.screen_width // 2,
-                             c.screen_height // 2,
+        message = TextObject(c.SCREEN_WIDTH // 2,
+                             c.SCREEN_HEIGHT // 2,
                              lambda: text,
                              color,
                              font_name,

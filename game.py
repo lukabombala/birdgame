@@ -1,9 +1,10 @@
-import pygame
 import sys
+from collections import defaultdict
+
+import pygame
 
 import colors
 import config as c
-from collections import defaultdict
 
 
 class Game:
@@ -54,11 +55,11 @@ class Game:
     def run(self):
         while not self.game_over:
             self.surface.blit(self.background_image, (0, 0))
+            pygame.draw.rect(self.surface, colors.SKY, [0, 0, c.SCREEN_WIDTH, c.ground_level])
             pygame.draw.rect(self.surface, colors.GROUND_COLOR, [0,
-                                                                 c.ground_level+20,
-                                                                 c.screen_width,
-                                                                 c.screen_height-c.ground_level-20])
-
+                                                                 c.ground_level,
+                                                                 c.SCREEN_WIDTH,
+                                                                 c.SCREEN_HEIGHT - c.ground_level])
             self.handle_events()
             self.update()
             self.draw()
